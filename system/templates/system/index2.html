@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{product.name}}</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 ,h2 p {
+        margin-bottom: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 80px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0 0.1);
+    }
+    .btn-primary{
+        background-color: #007bff;
+        border-color: #007bff;
+
+    } 
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
+</head>
+<body>
+{% include 'navbar.html' %}  
+
+  <div class="container"> 
+    
+    <h1>{{product.name}}</h1>
+   
+    <div>
+        <img src="{{ product.image.url }}" alt=" " width="200">
+    </div>
+
+    <div>
+        <h2>{{product.name}}</h2>
+        <p>{{product.description}}</p>
+        <p>Price: {{product.price}}</p>
+        <a href="{% url 'index'  %}" class="btn btn-primary">Grizti</a>
+    </div>
+</div>
+    {% include 'footer.html' %} 
+</body>
+</html>
