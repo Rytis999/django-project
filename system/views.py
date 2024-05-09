@@ -80,7 +80,7 @@ def mylist(request):
 
 
 
- return render(request, 'system/register.html', {'products': items} )
+ return render(request, 'system/mylist', {'products': items} )
 
 
      
