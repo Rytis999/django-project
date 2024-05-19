@@ -8,23 +8,23 @@
 <body>
  {% include 'navbar.html' %}   
   
- <div class="conatner">
-    <div class="row">
-      {% for item in products %}
-      <div class="col-md-2">
-        <div class="card">
-          <img src="{{product.image.url}}" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
-            <p class="card-text">{{item.description}}</p>
-            <a href="{% url 'index_detail' pk=product.pk  %}" class="btn btn-primary">Placiau</a>
-          </div>
+  
+<div class="conatner">
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-2">
+      <div class="card">
+        <img src="{{product.image.url}}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <a href="{% url 'index_detail' pk=product.pk  %}" class="btn btn-primary">Placiau</a>
         </div>
       </div>
-      {%  endfor %}
     </div>
+    {%  endfor %}
   </div>
-
+</div>
     
 
 

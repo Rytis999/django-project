@@ -6,9 +6,13 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('register', views.register,  name = 'register'), 
     path('login', views.user_login, name = 'login'),
-    path('list', views.list, name = 'list'),
+    path('logout', views.user_logout, name='user_logout'),
+    path('list/', views.list, name = 'list'),
     path('<int:pk>/', views.index_detail, name='index_detail'),
-    path('items/', views.mylist, name= 'mylist' )
+    path('mylist', views.mylist, name= 'mylist' ),
+    # path('clientList', views.clientList, name = 'clientList'),
+    path('delete/<int:pk>/', views.deleteItem, name='deleteItem'),
+    
 
     
 ]

@@ -61,6 +61,7 @@
         <p>{{product.description}}</p>
         <p>Price: {{product.price}}</p>
         <a href="{% url 'index'  %}" class="btn btn-primary">Grizti</a>
+        <a href="{% url 'deleteItem' pk=product.pk %}"><button type="submit" class="btn btn-danger">Delete</button></a>
     </div>
 </div>
     {% include 'footer.html' %} 

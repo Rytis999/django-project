@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate , login
 from .models import Product
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout 
 
 
 
@@ -19,7 +20,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('mylist')
+            return redirect('list')
         else:
              
             error_message = 'Invalid username or password'
@@ -36,7 +37,7 @@ def list(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('mylist')
     else: 
         form = ProductForm()   
 
@@ -73,15 +74,37 @@ def register(request):
     context = {'form':form}
     return render(request, 'system/register.html', context )
 
-
 @login_required
 def mylist(request):
- items = Product.objects.filter(user=request.user)
+ product  = Product.objects.filter(user=request.user)
 
 
 
- return render(request, 'system/mylist', {'products': items} )
+
+ return render(request, 'system/mylist.html', {'products': product} )
 
 
-     
 
+def deleteItem(request, pk):
+   product= get_object_or_404(Product, pk=pk, user=request.user)
+   product.delete()  
+   return redirect('mylist')      
+
+
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('index')
+
+
+
+
+
+
+
+# def clientList(request):
+
+
+
+#  return render(request, 'system/clientList')
