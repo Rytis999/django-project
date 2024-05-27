@@ -98,6 +98,17 @@ def user_logout(request):
     return redirect('index')
 
 
+def update_item(request, pk):
+    product = get_object_or_404(Product, pk=pk , user=request.user)
+    form = CreateForm(request.POST or None, instance = product)
+
+    if form.is_valid():
+        form.save()
+        return redirect('mylist')
+
+
+     
+    return render( request, 'system/updateItem.html', {'form': form, 'product': product})
 
 
 

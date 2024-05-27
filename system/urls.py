@@ -12,6 +12,9 @@ urlpatterns = [
     path('mylist', views.mylist, name= 'mylist' ),
     # path('clientList', views.clientList, name = 'clientList'),
     path('delete/<int:pk>/', views.deleteItem, name='deleteItem'),
+    path('updateItem/<int:pk>/', views.update_item, name='updateItem'  ),
+    
+ 
     
 
     

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+h1{
+    display: flex;
+    justify-content: center;
+}
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+{% include 'navbar.html' %}    
+
+
+<h1>Automobiliu nuoma </h1>
+
+
+
+<div class="container">
+    <div class="row">
+      {% for car in cars %} 
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{{car.image.url}}" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">{{car.name}}</h5>
+            <p class="card-text">{{car.description}}</p>
+            <h6>{{ car.available|yesno:"Available,Not Available" }}</h6>
+            <a href="{% url 'rent_detail' pk=car.pk  %}" class="btn btn-primary">Placiau</a>
+           
+          </div>
+        </div>
+      </div>
+      {%  endfor %}
+    </div>
+  </div>
+  
+
+
+
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>
