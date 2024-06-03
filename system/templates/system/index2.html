@@ -11,6 +11,7 @@
         
         margin: 0;
         padding: 0;
+         
     }
 
     .container {
@@ -60,9 +61,14 @@
         <h2>{{product.name}}</h2>
         <p>{{product.description}}</p>
         <p>Price: {{product.price}}</p>
+        <p>Phone number: {{product.phone}} </p>
         <a href="{% url 'index'  %}" class="btn btn-primary">Grizti</a>
+        {% if request.user.is_authenticated %}
+         
+         
         <a href="{% url 'deleteItem' pk=product.pk %}"><button type="submit" class="btn btn-danger">Delete</button></a>
         <a href="{% url 'updateItem' pk=product.pk %}" class="btn btn-primary" >Update Item </a>
+        {% endif %}
     </div>
 </div>
     {% include 'footer.html' %} 

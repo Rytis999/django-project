@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'system',
     'widget_tweaks',
     'rent',
+    'django_filters',
+    'rest_framework',
+    'corsheaders',
     
 
 ]
@@ -81,6 +84,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myapp.wsgi.application'
 
 # AUTH_USER_MODEL = 'system.CustomUser' 
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

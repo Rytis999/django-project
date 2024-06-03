@@ -6,6 +6,8 @@ from .models import Product
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout 
+from .forms import CategoryFilterForm
+from .filters import ProductFilter
 
 
 
@@ -47,7 +49,15 @@ def list(request):
 
 def index(request):
     products = Product.objects.all()
-    return render(request, 'system/index.html', {'products': products})
+    category_filter_form = CategoryFilterForm(request.GET or None)
+
+    if category_filter_form.is_valid():
+        category = category_filter_form.cleaned_data.get('category')
+        if category:
+            products = products.filter(category=category) 
+
+    return render(request, 'system/index.html', {'products': products,  'category_filter_form': category_filter_form})
+
 
 
 def index_detail(request, pk):
@@ -100,11 +110,15 @@ def user_logout(request):
 
 def update_item(request, pk):
     product = get_object_or_404(Product, pk=pk , user=request.user)
-    form = CreateForm(request.POST or None, instance = product)
+    form =  ProductForm(request.POST or None, instance = product)
 
     if form.is_valid():
         form.save()
         return redirect('mylist')
+    else:
+        print(form.errors)
+
+
 
 
      

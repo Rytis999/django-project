@@ -5,52 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
-    body, html {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
+ 
+ body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* This ensures that the footer stays at the bottom */
+        }
+        
+        .footer {
+            background: #5c5c5c;
+            border-top: 4px solid #515151;
+            color: #b0b0b0;
+            width: 100%;
+            padding: 20px 0; /* Add padding to the top and bottom */
+            text-align: center; /* Center-align text */
+            position: absolute;
+            bottom: 0;
+            height: 3rem;
+            
+        }
 
-    .content {
-        flex: 1;
-    }
-.footer{
-    background: #5c5c5c;
-    border-top: 4px solid #515151;
-    color: #b0b0b0;
-    position: absolute;
-    padding: 20px 0;
-    bottom: 0;
-    width: 100%;
+        .footer .footer-keywords a {
+            text-decoration: none;
+            margin: 0 5px; /* Add some space between links */
+            color: #b0b0b0;
+        }
 
-}
-.footer .footer-keywords a {
-    display: inline-block;
-    text-decoration: none;
-
-}
-.footer a {
-    color: #b0b0b0
-
-}
-.footer .footer-keywords{
-    font-size: 12px;
-    line-height: 18px;
-    opacity: .8;
-}
-
-.footer {
-  flex-shrink: 0;
-}
-
-.footer .footer-projects .links a {
-    margin-right: 10px
-}
+        .footer .links a {
+            text-decoration: none;
+            color: #b0b0b0;
+            margin-right: 10px; /* Add some space between links */
+        }
+ 
 
 </style>    
 </head>
 <body>
+  
   <div class="footer" style="visibility: visible; width:2000px; margin-left: 0px">
   <div class="partner-dashboard-wide container body-wraper" style="padding-left: 15px ;">
   <div class="item label">Pagalba ir informacija</div>
@@ -87,8 +80,58 @@
     </div>
 </div>
 <div class="footer-diginet">2003-2024 UAB Diginet LTU </div>
-
 </div>  
+
+</div> 
+ 
+ 
 
 </body>
 </html>
+
+
+<!-- 
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+.footer{
+background: #000000;
+border-top: 4px solid #515151;
+color: #2b0202;
+position: absolute;
+padding: 20px 0;
+bottom: 0;
+width: 100%;
+height: 2.5rem;
+
+
+}
+.footer .footer-keywords a {
+display: inline-block;
+text-decoration: none;
+
+}
+.footer a {
+color: #fffff8
+
+}
+.footer .footer-keywords{
+font-size: 12px;
+line-height: 18px;
+opacity: .8;
+}
+
+.footer {
+flex-shrink: 0;
+}
+
+.footer .footer-projects .links a {
+margin-right: 10px
+} -->

@@ -61,7 +61,14 @@ footer {
         {% endif %}
       </div>
     </div> -->
-
+    <div class="container mt-4">
+     
+   <form method="GET" class="mb-3">
+    {{category_filter_form.as_p}}
+    <button type="submit" class="btn btn-primary">Filter</button>
+   </form>   
+      
+       
     <div class="container">
       <div class="row">
         {% for product in products %}

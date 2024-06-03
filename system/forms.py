@@ -20,19 +20,25 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['name', 'price', 'category', 'description', 'image']
-
- 
-
-
- 
-
-
-
-
-
- 
+        fields = ['name', 'price', 'category', 'description', 'phone', 'image']
+  
  
  
 
 
+
+
+
+class CategoryFilterForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['category']
+
+
+
+# class CategoryFilterForm(forms.Form):
+#     category = forms.ChoiceField(
+#         choices=[('', 'All Categories')] + [(category, category) for category in Product.objects.values_list('category', flat=True).distinct()],
+#         required=False,
+#         label='Filter by category'
+#     )
