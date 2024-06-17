@@ -10,6 +10,8 @@ class Car(models.Model):
     price_per_day = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     image = models.ImageField(upload_to='uploads/vehicle/')
+    phone = models.CharField(max_length=42)
+    
 
     def __str__(self):
         return self.name  

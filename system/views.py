@@ -22,7 +22,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('list')
+            return redirect('index')
         else:
              
             error_message = 'Invalid username or password'

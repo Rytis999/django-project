@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Car ,Cart
-from django.contrib.auth import authenticate , login 
+from django.contrib.auth import authenticate , login  
 from django.contrib.auth.decorators import login_required
+from system.forms import ProductForm
+from .forms import carRentForm
 
 # Create your views here.
 
@@ -34,5 +36,36 @@ def add_to_cart(request, pk):
 def cart_view(request):
     cart_items = Cart.objects.filter(user=request.user)
     return render(request, 'rent/cart.html', {'cart_items': cart_items})
+
+
+
+@login_required
+def addcar(request):
+    form = carRentForm()
+    if request.method == 'POST':
+        form = carRentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('rent_index')
+    else:
+        form = carRentForm()
+        rents  = Car.objects.all()
+
+    
+    return render(request, 'rent/addcar.html', {'rents' : rents, 'form': form})
+
+
+ 
+
+def my_rents(request):
+ cart_items = Cart.objects.filter(user=request.user)
+    
+   
+ rents = [item.car for item in cart_items]
+    
+
+
+ return render(request, 'rent/my_rents.html', {'rents': rents})
+
 
 

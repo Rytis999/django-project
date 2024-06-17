@@ -1,0 +1,114 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+.container {
+  justify-content: center;
+}
+
+ form {
+ width: 100%;
+ justify-content: center;
+  
+ }
+
+     
+.btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+.btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+ 
+</style>    
+    
+</head>
+<body> 
+  {% include 'navbar.html' %}
+  
+
+  <div class="container">
+    <form method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Pavadinimas</label>
+            {{ form.name|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            <label for="price_per_day" class="form-label">Kaina</label>
+            {{ form.price_per_day|add_class:"form-control" }}
+        </div>
+       
+        <div class="mb-3">
+            <label for="description" class="form-label">Aprašymas</label>
+            {{ form.description|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Telefono numeris</label>
+            {{form.phone| add_class:"form-control"}}
+
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Nuotrauka</label>
+            {{ form.image|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary">Išsaugoti</button>
+        <a href="{% url 'rent_index'  %}" class="btn btn-primary">Grizti</a> 
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+{% include 'footer.html' %}    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

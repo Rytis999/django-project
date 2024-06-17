@@ -164,3 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'rent_index'
 LOGOUT_REDIRECT_URL = 'index'
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+
